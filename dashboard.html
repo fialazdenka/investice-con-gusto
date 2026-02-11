@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Con Gusto Finance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+  <!-- ===== HEADER ===== -->
+  <header class="dashboard-header">
+    <a href="index.html" class="dashboard-header__logo">Con Gusto <span>Finance</span></a>
+    <div class="dashboard-header__right">
+      <span class="dashboard-header__user">
+        <strong>Jan Novak</strong>
+      </span>
+      <a href="index.html" class="dashboard-header__logout">Odhlasit se</a>
+    </div>
+  </header>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="dashboard-sidebar">
+    <ul class="dashboard-sidebar__nav">
+      <li class="dashboard-sidebar__item">
+        <a href="#" class="dashboard-sidebar__link is-active" data-panel="prehled" title="Prehled">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          <span class="dashboard-sidebar__label">Prehled</span>
+        </a>
+      </li>
+      <li class="dashboard-sidebar__item">
+        <a href="#" class="dashboard-sidebar__link" data-panel="smlouvy" title="Smlouvy">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <span class="dashboard-sidebar__label">Smlouvy</span>
+        </a>
+      </li>
+      <li class="dashboard-sidebar__item">
+        <a href="#" class="dashboard-sidebar__link" data-panel="zpravy" title="Zpravy">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>
+          <span class="dashboard-sidebar__label">Zpravy</span>
+          <span class="dashboard-sidebar__badge">2</span>
+        </a>
+      </li>
+      <li class="dashboard-sidebar__item">
+        <a href="#" class="dashboard-sidebar__link" data-panel="nastaveni" title="Nastaveni">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+          <span class="dashboard-sidebar__label">Nastaveni</span>
+        </a>
+      </li>
+      <li class="dashboard-sidebar__item">
+        <a href="#" class="dashboard-sidebar__link" data-panel="vernost" title="Vernostni program">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span class="dashboard-sidebar__label">Vernost</span>
+        </a>
+      </li>
+      <li class="dashboard-sidebar__item">
+        <a href="#" class="dashboard-sidebar__link" data-panel="faq" title="Caste dotazy">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span class="dashboard-sidebar__label">FAQ</span>
+        </a>
+      </li>
+    </ul>
+    <div class="dashboard-sidebar__divider"></div>
+    <ul class="dashboard-sidebar__bottom">
+      <li class="dashboard-sidebar__item">
+        <a href="index.html" class="dashboard-sidebar__link">
+          <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          <span class="dashboard-sidebar__label">Odhlasit se</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="dashboard-main">
+
+    <!-- ========== 1. PREHLED ========== -->
+    <section class="dashboard-panel is-active" id="panel-prehled">
+
+      <h1 class="dashboard-title">Vitejte, Jane</h1>
+      <p class="dashboard-subtitle">Posledni prihlaseni: 10. 2. 2026, 14:32</p>
+
+      <!-- Stat Cards -->
+      <div class="dashboard-stats">
+        <div class="dashboard-stat">
+          <div class="dashboard-stat__label">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            Investovana castka
+          </div>
+          <div class="dashboard-stat__value">100 000 Kc</div>
+        </div>
+        <div class="dashboard-stat">
+          <div class="dashboard-stat__label">
+            <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            Urokova sazba
+          </div>
+          <div class="dashboard-stat__value dashboard-stat__value--accent">7 % p.a.</div>
+        </div>
+        <div class="dashboard-stat">
+          <div class="dashboard-stat__label">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            Bonusovy urok
+          </div>
+          <div class="dashboard-stat__value dashboard-stat__value--accent">1 500 Kc</div>
+        </div>
+        <div class="dashboard-stat">
+          <div class="dashboard-stat__label">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Celkovy vydelek vyhled
+          </div>
+          <div class="dashboard-stat__value">14 000 Kc</div>
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <div class="dashboard-card">
+        <h2 class="dashboard-card__title">Casova osa vyplat</h2>
+        <div class="dashboard-timeline">
+          <div class="dashboard-timeline__item dashboard-timeline__item--paid">
+            <div class="dashboard-timeline__dot"></div>
+            <div class="dashboard-timeline__date">15. 4. 2025</div>
+            <div class="dashboard-timeline__amount">1 750 Kc</div>
+          </div>
+          <div class="dashboard-timeline__item dashboard-timeline__item--paid">
+            <div class="dashboard-timeline__dot"></div>
+            <div class="dashboard-timeline__date">15. 7. 2025</div>
+            <div class="dashboard-timeline__amount">1 750 Kc</div>
+          </div>
+          <div class="dashboard-timeline__item dashboard-timeline__item--paid">
+            <div class="dashboard-timeline__dot"></div>
+            <div class="dashboard-timeline__date">15. 10. 2025</div>
+            <div class="dashboard-timeline__amount">1 750 Kc</div>
+          </div>
+          <div class="dashboard-timeline__item dashboard-timeline__item--paid">
+            <div class="dashboard-timeline__dot"></div>
+            <div class="dashboard-timeline__date">15. 1. 2026</div>
+            <div class="dashboard-timeline__amount">1 750 Kc</div>
+          </div>
+          <div class="dashboard-timeline__item dashboard-timeline__item--current">
+            <div class="dashboard-timeline__dot"></div>
+            <div class="dashboard-timeline__date">15. 4. 2026</div>
+            <div class="dashboard-timeline__amount">1 750 Kc</div>
+          </div>
+          <div class="dashboard-timeline__item dashboard-timeline__item--future">
+            <div class="dashboard-timeline__dot"></div>
+            <div class="dashboard-timeline__date">15. 7. 2026</div>
+            <div class="dashboard-timeline__amount">1 750 Kc</div>
+          </div>
+          <div class="dashboard-timeline__item dashboard-timeline__item--future">
+            <div class="dashboard-timeline__dot"></div>
+            <div class="dashboard-timeline__date">15. 10. 2026</div>
+            <div class="dashboard-timeline__amount">1 750 Kc</div>
+          </div>
+          <div class="dashboard-timeline__item dashboard-timeline__item--future">
+            <div class="dashboard-timeline__dot"></div>
+            <div class="dashboard-timeline__date">15. 1. 2027</div>
+            <div class="dashboard-timeline__amount">1 750 Kc</div>
+          </div>
+        </div>
+        <div class="dashboard-timeline__summary">
+          Celkem vyplaceno: <strong>7 000 Kc</strong>
+        </div>
+      </div>
+
+      <!-- Calculator -->
+      <div class="dashboard-card">
+        <h2 class="dashboard-card__title">Kalkulacka navyseni investice</h2>
+        <div class="dashboard-calc">
+          <div class="dashboard-calc__slider-wrap">
+            <div class="dashboard-calc__slider-label">
+              <span>Castka navyseni</span>
+              <span class="dashboard-calc__slider-value" id="calc-value">50 000 Kc</span>
+            </div>
+            <input type="range" class="dashboard-calc__slider" id="calc-slider" min="5000" max="500000" step="5000" value="50000">
+          </div>
+          <div class="dashboard-calc__result">
+            <div class="dashboard-calc__result-row">
+              <span class="dashboard-calc__result-label">Rocni urok (7 %)</span>
+              <span class="dashboard-calc__result-val" id="calc-interest">3 500 Kc</span>
+            </div>
+            <div class="dashboard-calc__result-row">
+              <span class="dashboard-calc__result-label">Ctvrtletni vyplata</span>
+              <span class="dashboard-calc__result-val" id="calc-quarterly">875 Kc</span>
+            </div>
+            <div class="dashboard-calc__result-row">
+              <span class="dashboard-calc__result-label">Celkovy vydelek za 2 roky</span>
+              <span class="dashboard-calc__result-val dashboard-calc__result-val--accent" id="calc-total">7 000 Kc</span>
+            </div>
+          </div>
+        </div>
+        <div class="dashboard-mt-24">
+          <button class="dashboard-btn dashboard-btn--primary" onclick="alert('Dekujeme za Vas zajem! Budeme Vas kontaktovat.')">Mam zajem o navyseni</button>
+        </div>
+      </div>
+
+      <!-- Opportunities -->
+      <h2 class="dashboard-card__title dashboard-mb-16">Dalsi prilezitosti</h2>
+      <div class="dashboard-opportunities">
+        <div class="dashboard-opportunity">
+          <span class="dashboard-opportunity__tag">Nova emise</span>
+          <h3 class="dashboard-opportunity__title">Con Gusto Dluhopis 2027</h3>
+          <p class="dashboard-opportunity__desc">Novy dluhopis s vyssi urokovou sazbou 8 % p.a. Minimalni investice 50 000 Kc. Emise planovana na Q2 2026.</p>
+          <a href="#" class="dashboard-btn dashboard-btn--outline dashboard-btn--small" onclick="alert('Informace o nove emisi Vam zasleme e-mailem.'); return false;">Zjistit vice</a>
+        </div>
+        <div class="dashboard-opportunity">
+          <span class="dashboard-opportunity__tag">Doporuceni</span>
+          <h3 class="dashboard-opportunity__title">Doporucte investici</h3>
+          <p class="dashboard-opportunity__desc">Za kazdeho noveho investora ziskate bonus 2 000 Kc k Vasemu vernostnimu kreditu. Podminky v sekci Vernostni program.</p>
+          <a href="#" class="dashboard-btn dashboard-btn--outline dashboard-btn--small" data-panel="vernost" onclick="return false;">Vice o programu</a>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========== 2. SMLOUVY ========== -->
+    <section class="dashboard-panel" id="panel-smlouvy">
+
+      <h1 class="dashboard-title">Smlouvy a dokumenty</h1>
+      <p class="dashboard-subtitle">Vsechny dokumenty k Vasi investici</p>
+
+      <div class="dashboard-card">
+        <div class="dashboard-doc">
+          <div class="dashboard-doc__info">
+            <div class="dashboard-doc__icon">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <div>
+              <div class="dashboard-doc__name">Smlouva o dluhopisu</div>
+              <div class="dashboard-doc__meta">PDF, 245 kB &middot; podepsano 15. 1. 2025</div>
+            </div>
+          </div>
+          <div class="dashboard-doc__actions">
+            <button class="dashboard-btn dashboard-btn--outline dashboard-btn--small" onclick="alert('Nahled dokumentu: Smlouva o dluhopisu')">Nahled</button>
+            <button class="dashboard-btn dashboard-btn--outline dashboard-btn--small" onclick="alert('Stahovani: Smlouva o dluhopisu.pdf')">Stahnout</button>
+            <button class="dashboard-btn dashboard-btn--outline dashboard-btn--small" onclick="alert('Odesilani na tiskarnu...')">Tisk</button>
+          </div>
+        </div>
+
+        <div class="dashboard-doc">
+          <div class="dashboard-doc__info">
+            <div class="dashboard-doc__icon">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <div>
+              <div class="dashboard-doc__name">Podminky dluhopisu</div>
+              <div class="dashboard-doc__meta">PDF, 180 kB &middot; ze dne 1. 1. 2025</div>
+            </div>
+          </div>
+          <div class="dashboard-doc__actions">
+            <button class="dashboard-btn dashboard-btn--outline dashboard-btn--small" onclick="alert('Nahled dokumentu: Podminky dluhopisu')">Nahled</button>
+            <button class="dashboard-btn dashboard-btn--outline dashboard-btn--small" onclick="alert('Stahovani: Podminky dluhopisu.pdf')">Stahnout</button>
+            <button class="dashboard-btn dashboard-btn--outline dashboard-btn--small" onclick="alert('Odesilani na tiskarnu...')">Tisk</button>
+          </div>
+        </div>
+
+        <div class="dashboard-doc">
+          <div class="dashboard-doc__info">
+            <div class="dashboard-doc__icon">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <div>
+              <div class="dashboard-doc__name">Dluhopis certifikat</div>
+              <div class="dashboard-doc__meta">PDF, 120 kB &middot; vydano 15. 1. 2025</div>
+            </div>
+          </div>
+          <div class="dashboard-doc__actions">
+            <button class="dashboard-btn dashboard-btn--outline dashboard-btn--small" onclick="alert('Nahled dokumentu: Dluhopis certifikat')">Nahled</button>
+            <button class="dashboard-btn dashboard-btn--outline dashboard-btn--small" onclick="alert('Stahovani: Dluhopis certifikat.pdf')">Stahnout</button>
+            <button class="dashboard-btn dashboard-btn--outline dashboard-btn--small" onclick="alert('Odesilani na tiskarnu...')">Tisk</button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========== 3. ZPRAVY ========== -->
+    <section class="dashboard-panel" id="panel-zpravy">
+
+      <h1 class="dashboard-title">Zpravy</h1>
+      <p class="dashboard-subtitle">Vase komunikace s Con Gusto Finance</p>
+
+      <!-- Message List -->
+      <div class="dashboard-card dashboard-card--flush" id="msg-list">
+        <div class="dashboard-msg dashboard-msg--unread" data-msg="1">
+          <span class="dashboard-msg__dot"></span>
+          <div class="dashboard-msg__content">
+            <div class="dashboard-msg__subject">Potvrzeni vyplaty uroku za Q4 2025</div>
+            <div class="dashboard-msg__preview">Vazeny pane Novaku, potvrzujeme vyplatu uroku ve vysi 1 750 Kc na Vas ucet...</div>
+          </div>
+          <span class="dashboard-msg__date">15. 1. 2026</span>
+        </div>
+        <div class="dashboard-msg dashboard-msg--unread" data-msg="2">
+          <span class="dashboard-msg__dot"></span>
+          <div class="dashboard-msg__content">
+            <div class="dashboard-msg__subject">Nove podminky vernostniho programu</div>
+            <div class="dashboard-msg__preview">Dovolujeme si Vas informovat o novych podminkach naseho vernostniho programu...</div>
+          </div>
+          <span class="dashboard-msg__date">10. 1. 2026</span>
+        </div>
+        <div class="dashboard-msg" data-msg="3">
+          <span class="dashboard-msg__dot"></span>
+          <div class="dashboard-msg__content">
+            <div class="dashboard-msg__subject">Potvrzeni vyplaty uroku za Q3 2025</div>
+            <div class="dashboard-msg__preview">Vazeny pane Novaku, castka 1 750 Kc byla uspesne odeslana na Vas bankovni ucet...</div>
+          </div>
+          <span class="dashboard-msg__date">15. 10. 2025</span>
+        </div>
+        <div class="dashboard-msg" data-msg="4">
+          <span class="dashboard-msg__dot"></span>
+          <div class="dashboard-msg__content">
+            <div class="dashboard-msg__subject">Pololetni report investice</div>
+            <div class="dashboard-msg__preview">Prehled Vasi investice za prvni pololeti 2025. Celkova vyplatena castka: 3 500 Kc...</div>
+          </div>
+          <span class="dashboard-msg__date">1. 7. 2025</span>
+        </div>
+        <div class="dashboard-msg" data-msg="5">
+          <span class="dashboard-msg__dot"></span>
+          <div class="dashboard-msg__content">
+            <div class="dashboard-msg__subject">Vitejte v Con Gusto Finance</div>
+            <div class="dashboard-msg__preview">Vazeny pane Novaku, dekujeme za Vasi duveru. Vase investice byla uspesne zaregistrovana...</div>
+          </div>
+          <span class="dashboard-msg__date">15. 1. 2025</span>
+        </div>
+      </div>
+
+      <!-- Message Detail views -->
+      <div class="dashboard-msg-detail" id="msg-detail-1">
+        <button class="dashboard-msg-detail__back">&larr; Zpet na zpravy</button>
+        <h2 class="dashboard-msg-detail__subject">Potvrzeni vyplaty uroku za Q4 2025</h2>
+        <div class="dashboard-msg-detail__meta">Od: Con Gusto Finance &middot; 15. 1. 2026</div>
+        <div class="dashboard-msg-detail__body">
+          <p>Vazeny pane Novaku,</p>
+          <p>potvrzujeme vyplatu uroku ve vysi 1 750 Kc na Vas bankovni ucet vedeny u Fio banky. Castka odpovida ctvrtletnimu uroku z Vasi investice 100 000 Kc pri sazbe 7 % p.a.</p>
+          <p>Celkem Vam bylo od pocatku investice vyplaceno 7 000 Kc. Dalsi vyplata je planovana na 15. 4. 2026.</p>
+          <p>S pozdravem,<br>Tym Con Gusto Finance</p>
+        </div>
+      </div>
+
+      <div class="dashboard-msg-detail" id="msg-detail-2">
+        <button class="dashboard-msg-detail__back">&larr; Zpet na zpravy</button>
+        <h2 class="dashboard-msg-detail__subject">Nove podminky vernostniho programu</h2>
+        <div class="dashboard-msg-detail__meta">Od: Con Gusto Finance &middot; 10. 1. 2026</div>
+        <div class="dashboard-msg-detail__body">
+          <p>Vazeny pane Novaku,</p>
+          <p>dovolujeme si Vas informovat o novych podminkach naseho vernostniho programu. Od 1. 2. 2026 jsme zvysili cashback na 10 % a pridali nove benefity pro Gold cleny.</p>
+          <p>Vas aktualni kredit cini 1 500 Kc. Noveho investora muzete doporucit primo z Vaseho dashboardu.</p>
+          <p>S pozdravem,<br>Tym Con Gusto Finance</p>
+        </div>
+      </div>
+
+      <div class="dashboard-msg-detail" id="msg-detail-3">
+        <button class="dashboard-msg-detail__back">&larr; Zpet na zpravy</button>
+        <h2 class="dashboard-msg-detail__subject">Potvrzeni vyplaty uroku za Q3 2025</h2>
+        <div class="dashboard-msg-detail__meta">Od: Con Gusto Finance &middot; 15. 10. 2025</div>
+        <div class="dashboard-msg-detail__body">
+          <p>Vazeny pane Novaku,</p>
+          <p>castka 1 750 Kc byla uspesne odeslana na Vas bankovni ucet. Jedna se o ctvrtletni urok z Vasi investice.</p>
+          <p>S pozdravem,<br>Tym Con Gusto Finance</p>
+        </div>
+      </div>
+
+      <div class="dashboard-msg-detail" id="msg-detail-4">
+        <button class="dashboard-msg-detail__back">&larr; Zpet na zpravy</button>
+        <h2 class="dashboard-msg-detail__subject">Pololetni report investice</h2>
+        <div class="dashboard-msg-detail__meta">Od: Con Gusto Finance &middot; 1. 7. 2025</div>
+        <div class="dashboard-msg-detail__body">
+          <p>Vazeny pane Novaku,</p>
+          <p>prehled Vasi investice za prvni pololeti 2025:</p>
+          <p>Investovana castka: 100 000 Kc<br>Urokova sazba: 7 % p.a.<br>Vyplaceno za Q1 2025: 1 750 Kc<br>Vyplaceno za Q2 2025: 1 750 Kc<br>Celkem vyplaceno: 3 500 Kc</p>
+          <p>Vase investice se vyviji dle planu. Dalsi vyplata probehne 15. 10. 2025.</p>
+          <p>S pozdravem,<br>Tym Con Gusto Finance</p>
+        </div>
+      </div>
+
+      <div class="dashboard-msg-detail" id="msg-detail-5">
+        <button class="dashboard-msg-detail__back">&larr; Zpet na zpravy</button>
+        <h2 class="dashboard-msg-detail__subject">Vitejte v Con Gusto Finance</h2>
+        <div class="dashboard-msg-detail__meta">Od: Con Gusto Finance &middot; 15. 1. 2025</div>
+        <div class="dashboard-msg-detail__body">
+          <p>Vazeny pane Novaku,</p>
+          <p>dekujeme za Vasi duveru a vitame Vas mezi investory Con Gusto Finance. Vase investice ve vysi 100 000 Kc byla uspesne zaregistrovana.</p>
+          <p>Hlavni parametry Vasi investice:<br>Vyse investice: 100 000 Kc<br>Urokova sazba: 7 % p.a.<br>Ctvrtletni vyplata: 1 750 Kc<br>Datum splatnosti: 15. 1. 2027</p>
+          <p>Prvni vyplata uroku probehne 15. 4. 2025. Vsechny dokumenty naleznete v sekci Smlouvy.</p>
+          <p>S pozdravem,<br>Tym Con Gusto Finance</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========== 4. NASTAVENI ========== -->
+    <section class="dashboard-panel" id="panel-nastaveni">
+
+      <h1 class="dashboard-title">Nastaveni</h1>
+      <p class="dashboard-subtitle">Sprava Vaseho uctu a preferenci</p>
+
+      <!-- Email preferences -->
+      <div class="dashboard-card">
+        <div class="dashboard-settings-section">
+          <h3 class="dashboard-settings-section__title">E-mailove preference</h3>
+          <label class="dashboard-checkbox">
+            <input type="checkbox" checked>
+            Potvrzeni o vyplate uroku
+          </label>
+          <label class="dashboard-checkbox">
+            <input type="checkbox" checked>
+            Mesicni souhrn investice
+          </label>
+          <label class="dashboard-checkbox">
+            <input type="checkbox">
+            Marketingove nabidky a novinky
+          </label>
+          <label class="dashboard-checkbox">
+            <input type="checkbox" checked>
+            Upozorneni na nove zpravy
+          </label>
+          <div class="dashboard-mt-24">
+            <button class="dashboard-btn dashboard-btn--primary" onclick="alert('Preference byly ulozeny.')">Ulozit preference</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Change request -->
+      <div class="dashboard-card">
+        <div class="dashboard-settings-section">
+          <h3 class="dashboard-settings-section__title">Zmena udaju</h3>
+          <select class="dashboard-select">
+            <option value="" disabled selected>Vyberte typ zmeny...</option>
+            <option value="adresa">Zmena adresy</option>
+            <option value="telefon">Zmena telefonniho cisla</option>
+            <option value="email">Zmena e-mailove adresy</option>
+            <option value="jine">Jina zmena</option>
+          </select>
+          <textarea class="dashboard-textarea" placeholder="Popiste pozadovanou zmenu..."></textarea>
+          <div class="dashboard-mt-16">
+            <button class="dashboard-btn dashboard-btn--primary" onclick="alert('Pozadavek na zmenu byl odeslan. Budeme Vas kontaktovat.')">Odeslat pozadavek</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bank account -->
+      <div class="dashboard-card">
+        <div class="dashboard-settings-section">
+          <h3 class="dashboard-settings-section__title">Bankovni ucet pro vyplaty</h3>
+          <div class="dashboard-bank-info">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-accent); flex-shrink: 0;"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            <span class="dashboard-bank-info__number">2901234567 / 2010</span>
+          </div>
+          <p class="dashboard-bank-info__note">Zmenu bankovniho uctu je mozne provest pouze pisemne nebo e-mailem na info@congusto.cz s overenym podpisem.</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========== 5. VERNOSTNI PROGRAM ========== -->
+    <section class="dashboard-panel" id="panel-vernost">
+
+      <h1 class="dashboard-title">Vernostni program</h1>
+      <p class="dashboard-subtitle">Vase vyhody jako investor Con Gusto Finance</p>
+
+      <!-- Loyalty card -->
+      <div class="dashboard-loyalty">
+        <div class="dashboard-loyalty__level">&#9733; Gold</div>
+        <div class="dashboard-loyalty__since">Clenem od ledna 2025</div>
+        <div class="dashboard-loyalty__stats">
+          <div>
+            <div class="dashboard-loyalty__stat-label">Vernostni kredit</div>
+            <div class="dashboard-loyalty__stat-value">1 500 Kc</div>
+          </div>
+          <div>
+            <div class="dashboard-loyalty__stat-label">Cashback</div>
+            <div class="dashboard-loyalty__stat-value">10 %</div>
+          </div>
+          <div>
+            <div class="dashboard-loyalty__stat-label">Clenstvi</div>
+            <div class="dashboard-loyalty__stat-value">Gold</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Benefits -->
+      <div class="dashboard-card">
+        <h2 class="dashboard-card__title">Vase benefity</h2>
+        <ul class="dashboard-benefits">
+          <li class="dashboard-benefits__item">
+            <span class="dashboard-benefits__icon">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            Prednostni pristup k novym emisim dluhopisu
+          </li>
+          <li class="dashboard-benefits__item">
+            <span class="dashboard-benefits__icon">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            10% cashback z uroku do vernostniho kreditu
+          </li>
+          <li class="dashboard-benefits__item">
+            <span class="dashboard-benefits__icon">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            Bonus 2 000 Kc za kazdeho doporuceneho investora
+          </li>
+          <li class="dashboard-benefits__item">
+            <span class="dashboard-benefits__icon">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            Osobni investicni poradce zdarma
+          </li>
+        </ul>
+      </div>
+
+      <div class="dashboard-mt-24">
+        <button class="dashboard-btn dashboard-btn--primary" onclick="alert('Kompletni podminky vernostniho programu Vam zasleme e-mailem.')">Prejit do vernostniho programu</button>
+      </div>
+
+    </section>
+
+    <!-- ========== 6. FAQ ========== -->
+    <section class="dashboard-panel" id="panel-faq">
+
+      <h1 class="dashboard-title">Caste dotazy</h1>
+      <p class="dashboard-subtitle">Odpovedi na nejcastejsi otazky investoru</p>
+
+      <div class="dashboard-card dashboard-card--faq">
+        <div class="dashboard-faq__item">
+          <button class="dashboard-faq__question">
+            Kdy probihaji vyplaty uroku?
+            <svg class="dashboard-faq__icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="dashboard-faq__answer">
+            <p>Uroky jsou vyplaceny ctvrtletne, vzdy k 15. dni mesice (duben, cervenec, rijen, leden). Castka je automaticky odeslana na Vas registrovany bankovni ucet. O kazde vyplate obdrzite potvrzeni e-mailem.</p>
+          </div>
+        </div>
+
+        <div class="dashboard-faq__item">
+          <button class="dashboard-faq__question">
+            Mohu svou investici navysit?
+            <svg class="dashboard-faq__icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="dashboard-faq__answer">
+            <p>Ano, investici muzete navysit kdykoli behem doby trvani dluhopisu. Minimalni navyseni je 5 000 Kc. Pro navyseni vyuzijte kalkulacku v sekci Prehled nebo nas kontaktujte primo.</p>
+          </div>
+        </div>
+
+        <div class="dashboard-faq__item">
+          <button class="dashboard-faq__question">
+            Jak funguje vernostni program?
+            <svg class="dashboard-faq__icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="dashboard-faq__answer">
+            <p>Vernostni program odmeni aktivni investory. Jako Gold clen ziskavate 10% cashback z uroku, bonus za doporuceni novych investoru a prednostni pristup k novym emisim. Vice informaci naleznete v sekci Vernostni program.</p>
+          </div>
+        </div>
+
+        <div class="dashboard-faq__item">
+          <button class="dashboard-faq__question">
+            Co se stane po splatnosti dluhopisu?
+            <svg class="dashboard-faq__icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="dashboard-faq__answer">
+            <p>V den splatnosti (15. 1. 2027) Vam bude vracena cela investovana castka 100 000 Kc na Vas bankovni ucet. Soucasne obdrzite posledni vyplatu uroku. Pred splatnosti Vas kontaktujeme s moznosti reinvestice do nove emise.</p>
+          </div>
+        </div>
+
+        <div class="dashboard-faq__item">
+          <button class="dashboard-faq__question">
+            Jak mohu zmenit sve udaje nebo bankovni ucet?
+            <svg class="dashboard-faq__icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="dashboard-faq__answer">
+            <p>Kontaktni udaje (adresa, telefon, e-mail) muzete zmenit v sekci Nastaveni. Zmena bankovniho uctu vyzaduje pisemny pozadavek s overenym podpisem — poslete jej e-mailem na info@congusto.cz nebo postou.</p>
+          </div>
+        </div>
+
+        <div class="dashboard-faq__item">
+          <button class="dashboard-faq__question">
+            Je moje investice pojistena?
+            <svg class="dashboard-faq__icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="dashboard-faq__answer">
+            <p>Dluhopisy nejsou pojisteny Fondem pojisteni vkladu. Vase investice je vsak zabezpecena majetkem spolecnosti a pravidelne auditovana nezavislym auditorem. Podrobnosti naleznete v dokumentu Podminky dluhopisu v sekci Smlouvy.</p>
+          </div>
+        </div>
+      </div>
+
+      <a href="faq.html" class="dashboard-faq__link">
+        Zobrazit kompletni FAQ &rarr;
+      </a>
+
+    </section>
+
+  </main>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
