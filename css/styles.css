@@ -147,6 +147,24 @@ a:hover {
   color: var(--color-text-light);
 }
 
+.header__login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.header__login:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  background: rgba(184, 151, 108, 0.1);
+}
+
 /* Buttons */
 .btn {
   display: inline-flex;
