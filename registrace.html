@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrace | Con Gusto Finance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/registrace.css">
+</head>
+<body class="reg-body">
+
+  <!-- Header -->
+  <header class="reg-header">
+    <a href="index.html" class="reg-header__logo">Con Gusto <span>Finance</span></a>
+  </header>
+
+  <!-- Progress bar -->
+  <div class="reg-progress">
+    <div class="reg-progress__step reg-progress__step--active" data-step="1">1</div>
+    <div class="reg-progress__line" data-line="1"></div>
+    <div class="reg-progress__step" data-step="2">2</div>
+    <div class="reg-progress__line" data-line="2"></div>
+    <div class="reg-progress__step" data-step="3">3</div>
+  </div>
+
+  <!-- Card wrapper -->
+  <main class="reg-card">
+
+    <!-- ============ KROK 1: Registrace ============ -->
+    <div class="reg-step is-active" data-step="1">
+      <h1 class="reg-title">Vytvořte si účet</h1>
+      <p class="reg-subtitle">Začněte investovat s Con Gusto Finance</p>
+
+      <form id="regForm1" novalidate>
+        <div class="reg-form__group">
+          <label class="reg-form__label" for="reg-name">Jméno a příjmení *</label>
+          <input type="text" id="reg-name" class="reg-form__input" placeholder="Jan Novák" required>
+          <div class="reg-form__error" data-error="reg-name">Vyplňte jméno a příjmení</div>
+        </div>
+
+        <div class="reg-form__group">
+          <label class="reg-form__label" for="reg-email">E-mail *</label>
+          <input type="email" id="reg-email" class="reg-form__input" placeholder="jan.novak@email.cz" required>
+          <div class="reg-form__error" data-error="reg-email">Zadejte platnou e-mailovou adresu</div>
+        </div>
+
+        <div class="reg-form__group">
+          <label class="reg-form__label" for="reg-phone">Telefonní číslo *</label>
+          <input type="tel" id="reg-phone" class="reg-form__input" placeholder="+420 123 456 789" required>
+          <div class="reg-form__error" data-error="reg-phone">Vyplňte telefonní číslo</div>
+        </div>
+
+        <div class="reg-form__group">
+          <label class="reg-form__label" for="reg-password">Heslo *</label>
+          <div class="reg-form__password-wrap">
+            <input type="password" id="reg-password" class="reg-form__input" placeholder="Minimálně 8 znaků" required minlength="8">
+            <button type="button" class="reg-form__toggle-pw" aria-label="Zobrazit heslo" data-target="reg-password">
+              <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <div class="reg-form__error" data-error="reg-password">Heslo musí mít alespoň 8 znaků</div>
+        </div>
+
+        <div class="reg-form__group">
+          <label class="reg-form__label" for="reg-password2">Potvrzení hesla *</label>
+          <div class="reg-form__password-wrap">
+            <input type="password" id="reg-password2" class="reg-form__input" placeholder="Zopakujte heslo" required>
+            <button type="button" class="reg-form__toggle-pw" aria-label="Zobrazit heslo" data-target="reg-password2">
+              <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <div class="reg-form__error" data-error="reg-password2">Hesla se neshodují</div>
+        </div>
+
+        <div class="reg-form__group">
+          <label class="reg-checkbox">
+            <input type="checkbox" id="reg-gdpr" required>
+            <span>Souhlasím se <a href="#" target="_blank">zpracováním osobních údajů</a></span>
+          </label>
+          <div class="reg-form__error" data-error="reg-gdpr">Souhlas je povinný</div>
+        </div>
+
+        <div class="reg-form__group">
+          <label class="reg-checkbox">
+            <input type="checkbox" id="reg-terms" required>
+            <span>Souhlasím s <a href="#" target="_blank">obchodními podmínkami</a></span>
+          </label>
+          <div class="reg-form__error" data-error="reg-terms">Souhlas je povinný</div>
+        </div>
+
+        <div class="reg-actions">
+          <button type="submit" class="reg-btn reg-btn--primary">Registrovat</button>
+        </div>
+      </form>
+
+      <div class="reg-footer">
+        Již máte účet? <a href="#">Přihlaste se</a>
+      </div>
+    </div>
+
+    <!-- ============ KROK 2: Ověření e-mailu ============ -->
+    <div class="reg-step" data-step="2">
+      <div class="reg-verify">
+        <div class="reg-verify__icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <h1 class="reg-title">Ověřte svůj e-mail</h1>
+        <p class="reg-subtitle">
+          Na adresu <span class="reg-verify__email" id="regVerifyEmail">jan.novak@email.cz</span>
+          jsme odeslali ověřovací odkaz. Klikněte na něj pro pokračování.
+        </p>
+        <div class="reg-actions">
+          <button type="button" class="reg-btn reg-btn--primary" id="regStep2Continue">Pokračovat</button>
+          <button type="button" class="reg-btn reg-btn--outline" id="regStep2Resend">Odeslat znovu</button>
+        </div>
+        <p class="reg-verify__hint">Nevidíte e-mail? Zkontrolujte složku spam.</p>
+      </div>
+    </div>
+
+    <!-- ============ KROK 3: Investiční profil ============ -->
+    <div class="reg-step" data-step="3">
+      <h1 class="reg-title">Investiční profil</h1>
+      <p class="reg-subtitle">Pomozte nám lépe porozumět vašim potřebám</p>
+
+      <form id="regForm3" novalidate>
+
+        <!-- Sekce A: Osobní údaje -->
+        <h3 class="reg-section-title">Osobní údaje</h3>
+
+        <div class="reg-form__group">
+          <label class="reg-form__label" for="reg-dob">Datum narození</label>
+          <input type="date" id="reg-dob" class="reg-form__input">
+        </div>
+
+        <div class="reg-form__group">
+          <label class="reg-form__label" for="reg-birthplace">Místo narození</label>
+          <input type="text" id="reg-birthplace" class="reg-form__input" placeholder="např. Praha">
+        </div>
+
+        <div class="reg-form__group">
+          <label class="reg-form__label" for="reg-address">Trvalé bydliště</label>
+          <input type="text" id="reg-address" class="reg-form__input" placeholder="Ulice a číslo popisné">
+        </div>
+
+        <div class="reg-form__row">
+          <div class="reg-form__group">
+            <label class="reg-form__label" for="reg-city">Město</label>
+            <input type="text" id="reg-city" class="reg-form__input" placeholder="Praha">
+          </div>
+          <div class="reg-form__group">
+            <label class="reg-form__label" for="reg-zip">PSČ</label>
+            <input type="text" id="reg-zip" class="reg-form__input" placeholder="110 00" maxlength="5">
+          </div>
+        </div>
+
+        <!-- Sekce: Průkaz totožnosti -->
+        <h3 class="reg-section-title">Průkaz totožnosti</h3>
+
+        <div class="reg-form__group">
+          <label class="reg-form__label" for="reg-id-number">Číslo občanského průkazu</label>
+          <input type="text" id="reg-id-number" class="reg-form__input" placeholder="123456789">
+        </div>
+
+        <div class="reg-form__row">
+          <div class="reg-form__group">
+            <label class="reg-form__label" for="reg-id-issued">Datum vydání</label>
+            <input type="date" id="reg-id-issued" class="reg-form__input">
+          </div>
+          <div class="reg-form__group">
+            <label class="reg-form__label" for="reg-id-expiry">Platnost do</label>
+            <input type="date" id="reg-id-expiry" class="reg-form__input">
+          </div>
+        </div>
+
+        <div class="reg-form__group">
+          <label class="reg-form__label">Sken občanského průkazu — přední strana</label>
+          <label class="reg-upload" id="regUploadFront">
+            <input type="file" accept="image/*,.pdf" id="reg-id-front">
+            <div class="reg-upload__content">
+              <svg class="reg-upload__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <span class="reg-upload__text">Nahrát soubor</span>
+              <span class="reg-upload__hint">JPG, PNG nebo PDF, max 5 MB</span>
+            </div>
+          </label>
+          <div class="reg-upload__filename" id="regFilenameFront"></div>
+        </div>
+
+        <div class="reg-form__group">
+          <label class="reg-form__label">Sken občanského průkazu — zadní strana</label>
+          <label class="reg-upload" id="regUploadBack">
+            <input type="file" accept="image/*,.pdf" id="reg-id-back">
+            <div class="reg-upload__content">
+              <svg class="reg-upload__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <span class="reg-upload__text">Nahrát soubor</span>
+              <span class="reg-upload__hint">JPG, PNG nebo PDF, max 5 MB</span>
+            </div>
+          </label>
+          <div class="reg-upload__filename" id="regFilenameBack"></div>
+        </div>
+
+        <!-- Sekce: Bankovní spojení -->
+        <h3 class="reg-section-title">Bankovní spojení</h3>
+
+        <div class="reg-form__group">
+          <label class="reg-form__label" for="reg-bank-account">Číslo bankovního účtu</label>
+          <input type="text" id="reg-bank-account" class="reg-form__input" placeholder="123456789/0100">
+        </div>
+
+        <div class="reg-form__group">
+          <label class="reg-form__label" for="reg-bank-name">Název banky</label>
+          <select id="reg-bank-name" class="reg-form__select">
+            <option value="">Vyberte banku</option>
+            <option value="0100">Komerční banka</option>
+            <option value="0300">ČSOB</option>
+            <option value="0600">MONETA Money Bank</option>
+            <option value="0710">Česká národní banka</option>
+            <option value="0800">Česká spořitelna</option>
+            <option value="2010">Fio banka</option>
+            <option value="2700">UniCredit Bank</option>
+            <option value="3030">Air Bank</option>
+            <option value="5500">Raiffeisenbank</option>
+            <option value="6210">mBank</option>
+            <option value="other">Jiná</option>
+          </select>
+        </div>
+
+        <div class="reg-verify-payment">
+          <div class="reg-verify-payment__header">
+            <div class="reg-verify-payment__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            </div>
+            <strong>Ověření účtu kontrolní platbou</strong>
+          </div>
+          <p class="reg-verify-payment__desc">Pro ověření bankovního spojení odešlete kontrolní platbu <strong>1 Kč</strong>. Částka vám bude vrácena.</p>
+          <div class="reg-verify-payment__body">
+            <div class="reg-verify-payment__qr">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&ecc=M&data=SPD*1.0*ACC%3ACZ6501000000001234567890*AM%3A1.00*CC%3ACZK*X-VS%3A240187*MSG%3AOvereni+uctu+Con+Gusto+Finance" alt="QR Platba" width="180" height="180">
+              <span class="reg-verify-payment__qr-label">QR Platba</span>
+            </div>
+            <div class="reg-verify-payment__details">
+              <div class="reg-verify-payment__row">
+                <span>Číslo účtu</span>
+                <strong>1234567890/0100</strong>
+              </div>
+              <div class="reg-verify-payment__row">
+                <span>Variabilní symbol</span>
+                <strong class="reg-verify-payment__vs">240187</strong>
+              </div>
+              <div class="reg-verify-payment__row">
+                <span>Částka</span>
+                <strong>1 Kč</strong>
+              </div>
+              <div class="reg-verify-payment__row">
+                <span>Zpráva</span>
+                <strong>Ověření účtu</strong>
+              </div>
+            </div>
+          </div>
+          <p class="reg-verify-payment__note">Naskenujte QR kód v bankovní aplikaci nebo zadejte údaje ručně. Po připsání platby vám aktivujeme účet.</p>
+        </div>
+
+        <!-- Sekce B: Investiční zkušenosti -->
+        <h3 class="reg-section-title">Investiční zkušenosti</h3>
+
+        <div class="reg-form__group">
+          <label class="reg-form__label">Jaké jsou vaše zkušenosti s investováním?</label>
+          <div class="reg-radio-group">
+            <label class="reg-radio">
+              <input type="radio" name="experience" value="none">
+              <span>Žádné</span>
+            </label>
+            <label class="reg-radio">
+              <input type="radio" name="experience" value="basic">
+              <span>Základní</span>
+            </label>
+            <label class="reg-radio">
+              <input type="radio" name="experience" value="advanced">
+              <span>Pokročilé</span>
+            </label>
+            <label class="reg-radio">
+              <input type="radio" name="experience" value="expert">
+              <span>Expertní</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="reg-form__group">
+          <label class="reg-form__label">Do jakých nástrojů jste investoval/a?</label>
+          <div class="reg-checkbox-group">
+            <label class="reg-checkbox-option">
+              <input type="checkbox" name="instruments" value="savings">
+              <span>Spořicí účty</span>
+            </label>
+            <label class="reg-checkbox-option">
+              <input type="checkbox" name="instruments" value="bonds">
+              <span>Dluhopisy</span>
+            </label>
+            <label class="reg-checkbox-option">
+              <input type="checkbox" name="instruments" value="stocks">
+              <span>Akcie</span>
+            </label>
+            <label class="reg-checkbox-option">
+              <input type="checkbox" name="instruments" value="funds">
+              <span>Fondy</span>
+            </label>
+            <label class="reg-checkbox-option">
+              <input type="checkbox" name="instruments" value="realestate">
+              <span>Nemovitosti</span>
+            </label>
+            <label class="reg-checkbox-option">
+              <input type="checkbox" name="instruments" value="crypto">
+              <span>Kryptoměny</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="reg-form__group">
+          <label class="reg-form__label">Jaký je váš investiční horizont?</label>
+          <div class="reg-radio-group">
+            <label class="reg-radio">
+              <input type="radio" name="horizon" value="1y">
+              <span>Do 1 roku</span>
+            </label>
+            <label class="reg-radio">
+              <input type="radio" name="horizon" value="1-3y">
+              <span>1–3 roky</span>
+            </label>
+            <label class="reg-radio">
+              <input type="radio" name="horizon" value="3-5y">
+              <span>3–5 let</span>
+            </label>
+            <label class="reg-radio">
+              <input type="radio" name="horizon" value="5y+">
+              <span>Více než 5 let</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Sekce C: Finanční situace -->
+        <h3 class="reg-section-title">Finanční situace</h3>
+
+        <div class="reg-form__group">
+          <label class="reg-form__label" for="reg-income">Jaký je váš roční příjem?</label>
+          <select id="reg-income" class="reg-form__select">
+            <option value="">Vyberte</option>
+            <option value="500k">Do 500 tis. Kč</option>
+            <option value="500k-1m">500 tis. – 1 mil. Kč</option>
+            <option value="1m-2m">1 – 2 mil. Kč</option>
+            <option value="2m+">Nad 2 mil. Kč</option>
+            <option value="na">Nechci uvádět</option>
+          </select>
+        </div>
+
+        <div class="reg-form__group">
+          <label class="reg-form__label" for="reg-amount">Jakou částku plánujete investovat?</label>
+          <select id="reg-amount" class="reg-form__select">
+            <option value="">Vyberte</option>
+            <option value="50k">Do 50 tis. Kč</option>
+            <option value="50-200k">50 – 200 tis. Kč</option>
+            <option value="200-500k">200 – 500 tis. Kč</option>
+            <option value="500k+">Nad 500 tis. Kč</option>
+          </select>
+        </div>
+
+        <div class="reg-form__group">
+          <label class="reg-form__label">Jaká je vaše tolerance k riziku?</label>
+          <div class="reg-radio-group">
+            <label class="reg-radio">
+              <input type="radio" name="risk" value="conservative">
+              <span>Konzervativní</span>
+            </label>
+            <label class="reg-radio">
+              <input type="radio" name="risk" value="balanced">
+              <span>Vyvážená</span>
+            </label>
+            <label class="reg-radio">
+              <input type="radio" name="risk" value="dynamic">
+              <span>Dynamická</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="reg-actions">
+          <button type="submit" class="reg-btn reg-btn--primary">Dokončit registraci</button>
+        </div>
+      </form>
+    </div>
+
+  </main>
+
+  <script src="js/registrace.js"></script>
+</body>
+</html>

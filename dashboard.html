@@ -27,9 +27,15 @@
   <aside class="dashboard-sidebar">
     <ul class="dashboard-sidebar__nav">
       <li class="dashboard-sidebar__item">
-        <a href="#" class="dashboard-sidebar__link is-active" data-panel="prehled" title="Prehled">
+        <a href="#" class="dashboard-sidebar__link is-active" data-panel="prehled" title="Moje investice">
           <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-          <span class="dashboard-sidebar__label">Prehled</span>
+          <span class="dashboard-sidebar__label">Moje investice</span>
+        </a>
+      </li>
+      <li class="dashboard-sidebar__item">
+        <a href="#" class="dashboard-sidebar__link" data-panel="transe" title="Aktualni transe">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <span class="dashboard-sidebar__label">Aktualni transe</span>
         </a>
       </li>
       <li class="dashboard-sidebar__item">
@@ -78,10 +84,10 @@
   <!-- ===== MAIN CONTENT ===== -->
   <main class="dashboard-main">
 
-    <!-- ========== 1. PREHLED ========== -->
+    <!-- ========== 1. MOJE INVESTICE ========== -->
     <section class="dashboard-panel is-active" id="panel-prehled">
 
-      <h1 class="dashboard-title">Vitejte, Jane</h1>
+      <h1 class="dashboard-title">Moje investice</h1>
       <p class="dashboard-subtitle">Posledni prihlaseni: 10. 2. 2026, 14:32</p>
 
       <!-- Stat Cards -->
@@ -105,14 +111,46 @@
             <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
             Bonusovy urok
           </div>
-          <div class="dashboard-stat__value dashboard-stat__value--accent">1 500 Kc</div>
+          <div class="dashboard-stat__value dashboard-stat__value--accent">1,5 % <span class="dashboard-stat__sub">(1 500 Kc)</span></div>
         </div>
         <div class="dashboard-stat">
           <div class="dashboard-stat__label">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Celkovy vydelek vyhled
+            Splatnost
           </div>
-          <div class="dashboard-stat__value">14 000 Kc</div>
+          <div class="dashboard-stat__value">15. 1. 2027</div>
+        </div>
+      </div>
+
+      <!-- Celkovy vydelek summary -->
+      <div class="dashboard-earnings">
+        <div class="dashboard-earnings__item">
+          <div class="dashboard-earnings__label">Celkovy urok za 2 roky</div>
+          <div class="dashboard-earnings__row">
+            <span class="dashboard-earnings__value">14 000 Kc</span>
+            <span class="dashboard-earnings__tax">po zdaneni 11 900 Kc</span>
+          </div>
+          <div class="dashboard-earnings__bar">
+            <div class="dashboard-earnings__bar-fill" style="width: 50%"></div>
+          </div>
+          <div class="dashboard-earnings__bar-labels">
+            <span>Vyplaceno: 7 000 Kc</span>
+            <span>Zbyvajici: 7 000 Kc</span>
+          </div>
+        </div>
+        <div class="dashboard-earnings__item">
+          <div class="dashboard-earnings__label">Ctvrtletni vyplata</div>
+          <div class="dashboard-earnings__row">
+            <span class="dashboard-earnings__value">1 750 Kc</span>
+            <span class="dashboard-earnings__tax">po zdaneni 1 488 Kc</span>
+          </div>
+        </div>
+        <div class="dashboard-earnings__item">
+          <div class="dashboard-earnings__label">Celkovy vynos (urok + bonus)</div>
+          <div class="dashboard-earnings__row">
+            <span class="dashboard-earnings__value dashboard-earnings__value--accent">15 500 Kc</span>
+            <span class="dashboard-earnings__tax">8,5 % celkem / po zdaneni 13 400 Kc</span>
+          </div>
         </div>
       </div>
 
@@ -211,6 +249,170 @@
           <h3 class="dashboard-opportunity__title">Doporucte investici</h3>
           <p class="dashboard-opportunity__desc">Za kazdeho noveho investora ziskate bonus 2 000 Kc k Vasemu vernostnimu kreditu. Podminky v sekci Vernostni program.</p>
           <a href="#" class="dashboard-btn dashboard-btn--outline dashboard-btn--small" data-panel="vernost" onclick="return false;">Vice o programu</a>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========== AKTUALNI TRANSE ========== -->
+    <section class="dashboard-panel" id="panel-transe">
+
+      <h1 class="dashboard-title">Con Gusto Dluhopis I/2025</h1>
+      <p class="dashboard-subtitle">Aktualni investicni prilezitost</p>
+
+      <!-- Status badge -->
+      <div class="transe-status">
+        <span class="transe-status__badge transe-status__badge--active">Aktivni upisovani</span>
+        <span class="transe-status__date">Upisovani do 30. 6. 2026</span>
+      </div>
+
+      <!-- Key params grid -->
+      <div class="transe-params">
+        <div class="transe-param">
+          <div class="transe-param__value transe-param__value--accent">7 %</div>
+          <div class="transe-param__label">Rocni urok p.a.</div>
+        </div>
+        <div class="transe-param">
+          <div class="transe-param__value">2 roky</div>
+          <div class="transe-param__label">Doba investice</div>
+        </div>
+        <div class="transe-param">
+          <div class="transe-param__value">5 000 Kc</div>
+          <div class="transe-param__label">Minimalni investice</div>
+        </div>
+        <div class="transe-param">
+          <div class="transe-param__value">Ctvrtletne</div>
+          <div class="transe-param__label">Vyplata uroku</div>
+        </div>
+      </div>
+
+      <!-- Funding progress -->
+      <div class="dashboard-card">
+        <h2 class="dashboard-card__title">Prubeh financovani</h2>
+        <div class="transe-funding">
+          <div class="transe-funding__bar">
+            <div class="transe-funding__bar-fill" style="width: 62%"></div>
+          </div>
+          <div class="transe-funding__labels">
+            <span>62 % naplneno</span>
+            <span>9 300 000 Kc z 15 000 000 Kc</span>
+          </div>
+          <div class="transe-funding__stats">
+            <div class="transe-funding__stat">
+              <span class="transe-funding__stat-value">47</span>
+              <span class="transe-funding__stat-label">Investoru</span>
+            </div>
+            <div class="transe-funding__stat">
+              <span class="transe-funding__stat-value">5 700 000 Kc</span>
+              <span class="transe-funding__stat-label">Zbyva do naplneni</span>
+            </div>
+            <div class="transe-funding__stat">
+              <span class="transe-funding__stat-value">142 dnu</span>
+              <span class="transe-funding__stat-label">Zbyva do uzavreni</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- O projektu -->
+      <div class="dashboard-card">
+        <h2 class="dashboard-card__title">O projektu</h2>
+        <div class="transe-about">
+          <p>Prostredky z emise dluhopisu budou vyuzity na financovani rozvoje gastronomicke skupiny Con Gusto. Konkretne pujde o:</p>
+          <ul class="transe-about__list">
+            <li>Rekonstrukce a modernizace restaurace Gran Gusto v centru Prahy</li>
+            <li>Rozsireni kapacity kuchyne a zavedeni noveho konceptu degustacnich menu</li>
+            <li>Investice do technologii a digitalizace objednavkoveho systemu</li>
+          </ul>
+          <p>Skupina Con Gusto provozuje 4 restaurace v Praze a okoli s rocnim obratem pres 85 mil. Kc. Spolecnost je auditovana a hospodari se stabilnim ziskem.</p>
+        </div>
+      </div>
+
+      <!-- Parametry detail -->
+      <div class="dashboard-card">
+        <h2 class="dashboard-card__title">Detailni parametry</h2>
+        <div class="transe-detail-list">
+          <div class="transe-detail-list__item">
+            <span>Emitent</span>
+            <strong>Con Gusto Finance s.r.o.</strong>
+          </div>
+          <div class="transe-detail-list__item">
+            <span>Typ emise</span>
+            <strong>Neverejna</strong>
+          </div>
+          <div class="transe-detail-list__item">
+            <span>Cilovy objem</span>
+            <strong>15 000 000 Kc</strong>
+          </div>
+          <div class="transe-detail-list__item">
+            <span>Jmenovita hodnota</span>
+            <strong>1 Kc</strong>
+          </div>
+          <div class="transe-detail-list__item">
+            <span>Urokova sazba</span>
+            <strong>7 % p.a. (fixni)</strong>
+          </div>
+          <div class="transe-detail-list__item">
+            <span>Vyplata uroku</span>
+            <strong>Ctvrtletne / pololetne</strong>
+          </div>
+          <div class="transe-detail-list__item">
+            <span>Splatnost</span>
+            <strong>24 mesicu od upsani</strong>
+          </div>
+          <div class="transe-detail-list__item">
+            <span>Zajisteni</span>
+            <strong>Rucitelske prohlaseni materskespolecnosti</strong>
+          </div>
+          <div class="transe-detail-list__item">
+            <span>Zdaneni uroku</span>
+            <strong>15 % srazka (zajistuje emitent)</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dokumenty ke stazeni -->
+      <div class="dashboard-card">
+        <h2 class="dashboard-card__title">Dokumenty k emisi</h2>
+        <div class="dashboard-doc">
+          <div class="dashboard-doc__info">
+            <div class="dashboard-doc__icon">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <div>
+              <div class="dashboard-doc__name">Podminky dluhopisu (informacni list)</div>
+              <div class="dashboard-doc__meta">PDF, 320 kB</div>
+            </div>
+          </div>
+          <div class="dashboard-doc__actions">
+            <button class="dashboard-btn dashboard-btn--outline dashboard-btn--small" onclick="alert('Stahovani: Podminky dluhopisu.pdf')">Stahnout</button>
+          </div>
+        </div>
+        <div class="dashboard-doc">
+          <div class="dashboard-doc__info">
+            <div class="dashboard-doc__icon">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <div>
+              <div class="dashboard-doc__name">Vzorova smlouva o upsani</div>
+              <div class="dashboard-doc__meta">PDF, 180 kB</div>
+            </div>
+          </div>
+          <div class="dashboard-doc__actions">
+            <button class="dashboard-btn dashboard-btn--outline dashboard-btn--small" onclick="alert('Stahovani: Vzorova smlouva.pdf')">Stahnout</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="transe-cta">
+        <div class="transe-cta__text">
+          <h3>Chcete investovat?</h3>
+          <p>Staci vyplnit online smlouvu o upsani dluhopisu. Cely proces trva priblizne 5 minut.</p>
+        </div>
+        <div class="transe-cta__actions">
+          <button class="dashboard-btn dashboard-btn--primary" onclick="alert('Prejdete na stranku smlouvy o upsani dluhopisu.')">Upsat dluhopis</button>
+          <button class="dashboard-btn dashboard-btn--outline" onclick="alert('Informace o emisi Vam zasleme e-mailem.')">Mam dotaz</button>
         </div>
       </div>
 

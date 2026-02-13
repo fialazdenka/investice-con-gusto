@@ -1066,6 +1066,318 @@
   outline-offset: 4px;
 }
 
+/* ---- Stat sub value ---- */
+
+.dashboard-stat__sub {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* ---- Earnings Summary ---- */
+
+.dashboard-earnings {
+  background: var(--color-dark-light);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 28px;
+}
+
+.dashboard-earnings__item {
+  position: relative;
+}
+
+.dashboard-earnings__item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -14px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.dashboard-earnings__label {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 6px;
+}
+
+.dashboard-earnings__row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.dashboard-earnings__value {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+}
+
+.dashboard-earnings__value--accent {
+  color: var(--color-accent);
+}
+
+.dashboard-earnings__tax {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.dashboard-earnings__bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.dashboard-earnings__bar-fill {
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: 3px;
+  transition: width 0.6s ease;
+}
+
+.dashboard-earnings__bar-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.6875rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 6px;
+}
+
+/* ---- Transe Panel ---- */
+
+.transe-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.transe-status__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.transe-status__badge--active {
+  background: rgba(46, 204, 113, 0.15);
+  color: #2ecc71;
+}
+
+.transe-status__badge--active::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2ecc71;
+  animation: dashboardPulse 2s infinite;
+}
+
+.transe-status__date {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.transe-params {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.transe-param {
+  background: var(--color-dark-light);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.transe-param__value {
+  font-family: var(--font-serif);
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+  margin-bottom: 4px;
+}
+
+.transe-param__value--accent {
+  color: var(--color-accent);
+}
+
+.transe-param__label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Funding progress */
+
+.transe-funding__bar {
+  height: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.transe-funding__bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+  border-radius: 6px;
+  transition: width 0.8s ease;
+}
+
+.transe-funding__labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 20px;
+}
+
+.transe-funding__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.transe-funding__stat {
+  text-align: center;
+}
+
+.transe-funding__stat-value {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+  margin-bottom: 2px;
+}
+
+.transe-funding__stat-label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* About section */
+
+.transe-about {
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+}
+
+.transe-about p {
+  margin-bottom: 12px;
+}
+
+.transe-about__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+}
+
+.transe-about__list li {
+  padding: 8px 0;
+  padding-left: 24px;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.transe-about__list li:last-child {
+  border-bottom: none;
+}
+
+.transe-about__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+/* Detail list */
+
+.transe-detail-list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.9375rem;
+}
+
+.transe-detail-list__item:last-child {
+  border-bottom: none;
+}
+
+.transe-detail-list__item span {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.transe-detail-list__item strong {
+  color: var(--color-text-light);
+  font-weight: 500;
+  text-align: right;
+}
+
+/* CTA box */
+
+.transe-cta {
+  background: var(--color-dark-light);
+  border: 1px solid rgba(184, 151, 108, 0.25);
+  border-radius: 12px;
+  padding: 32px;
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.transe-cta__text h3 {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+  margin-bottom: 6px;
+}
+
+.transe-cta__text p {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+}
+
+.transe-cta__actions {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
 /* ---- Utility ---- */
 
 .dashboard-mt-24 { margin-top: 24px; }
@@ -1122,6 +1434,28 @@
   .dashboard-loyalty__stats {
     flex-wrap: wrap;
     gap: 16px;
+  }
+
+  .dashboard-earnings {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dashboard-earnings__item:nth-child(2)::after {
+    display: none;
+  }
+
+  .transe-params {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .transe-funding__stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .transe-cta {
+    flex-direction: column;
+    text-align: center;
   }
 }
 
@@ -1251,5 +1585,47 @@
 
   .dashboard-card {
     padding: 20px;
+  }
+
+  .dashboard-earnings {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .dashboard-earnings__item::after {
+    display: none !important;
+  }
+
+  .transe-params {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .transe-param {
+    padding: 16px;
+  }
+
+  .transe-param__value {
+    font-size: 1.125rem;
+  }
+
+  .transe-cta {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px;
+  }
+
+  .transe-cta__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .transe-detail-list__item {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .transe-detail-list__item strong {
+    text-align: left;
   }
 }
